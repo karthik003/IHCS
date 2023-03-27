@@ -1,0 +1,81 @@
+// @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// fonts
+// $font-primary: "Open Sans", sans-serif;
+// $font-primary: "Oswald", sans-serif;
+// $font-primary: "M PLUS Code Latin", sans-serif;
+$font-primary: "Encode Sans SC", sans-serif;
+$font-secondary: "Lora", serif;
+
+// colors
+
+// hash values
+
+$color-light: #fff;
+$color-dark: #262626;
+$color-background-light: #f3f6fb;
+$color-background-dark: #051417;
+$color-primary: #1f4690;
+$color-secondary: #26647e;
+$color-tertiary: #7661f2;
+$color-success: #23963e;
+$color-danger: #dc3545;
+$color-warning: #282c2d;
+$color-info: #986d8e;
+$color-grey: #575656;
+$color-grey-dark: #2b2b2b;
+$color-grey-light: #bababa;
+
+// others
+$transition-primary: all 0.3s;
+$shadow-primary: rgba($color-grey, 0.15) 1.95px 1.95px 2.6px;
+$shadow-secondary: rgba($color-dark, 0.1) 0px 4px 12px;
+$shadow-secondary-light: rgba($color-light, 0.1) 0px 4px 12px;
+$shadow-tertiary: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+$shadow-border-dark: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+$shadow-border-light: rgba(255, 255, 255, 0.16) 0px 1px 4px, rgb(255, 255, 255) 0px 0px 0px 3px;
+
+:root {
+  --color-light: #{$color-light};
+  --color-dark: #{$color-dark};
+  --color-background: #{$color-background-light};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-tertiary: #{$color-tertiary};
+  --color-success: #{$color-success};
+  --color-danger: #{$color-danger};
+  --color-warning: #{$color-warning};
+  --color-info: #{$color-info};
+  --color-grey: #{$color-grey};
+  --color-grey-light-dark: #{$color-grey-light};
+  --color-grey-dark-light: #{$color-grey-dark};
+  --color-dark-light-opaque: #{rgba($color-dark, 0.1)};
+  --shadow-primary: #{$shadow-primary};
+  --shadow-secondary: #{$shadow-secondary};
+  --shadow-tertiary: #{$shadow-tertiary};
+  --shadow-border: #{$shadow-border-dark};
+}
+
+.dark {
+  --color-light: #{$color-dark};
+  --color-dark: #{$color-light};
+  --color-background: #{$color-background-dark};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-tertiary: #{$color-tertiary};
+  --color-success: #{$color-success};
+  --color-danger: #{$color-danger};
+  --color-warning: #{$color-warning};
+  --color-info: #{$color-info};
+  --color-grey: #{$color-light};
+  --color-grey-light-dark: #{$color-grey-dark};
+  --color-grey-dark-light: #{$color-grey-light};
+  --color-dark-light-opaque: #{rgba($color-light, 0.1)};
+  --shadow-primary: none;
+  --shadow-secondary: #{$shadow-secondary-light};
+  --shadow-tertiary: none;
+  --shadow-border: #{$shadow-border-light};
+}

@@ -1,0 +1,17 @@
+.button-text-fill {
+  .button {
+    padding: 1rem 2rem;
+    background-color: var(--color-dark);
+    border-radius: 5px;
+    border: none;
+    color: var(--color-light);
+    cursor: pointer;
+    transition: $transition-primary;
+    border: 2px solid var(--color-dark);
+
+    &:hover {
+      background-color: rgba($color-dark, 0.75);
+      border-color: rgba($color-dark, 0.1);
+    }
+  }
+}

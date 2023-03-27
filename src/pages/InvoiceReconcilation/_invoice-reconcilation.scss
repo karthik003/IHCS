@@ -1,0 +1,22 @@
+.invoice-reconcilation {
+  padding: 0 5rem 10rem;
+
+  .steppers-primary {
+    margin: 10rem 0;
+  }
+
+  @import "./table-parent";
+  @import "./table-child";
+  @import "./view-popup";
+  @import "./edit-invoice-details";
+  @import "./speed-dial-reconciliation";
+  @import "./view-inline-table";
+  @import "./view-po-table";
+  @import "./view-po-select-table";
+}
+
+@include respond(phone) {
+  .invoice-reconcilation {
+    padding: 5rem;
+  }
+}

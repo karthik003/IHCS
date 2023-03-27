@@ -1,0 +1,136 @@
+.login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(../../media/images/provenio-bg.jpg);
+  // background: linear-gradient(180deg, #0051d8 0%, #000000 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .left {
+    flex: 4;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      width: 50rem;
+    }
+
+    .provenioqa {
+      width: 30rem;
+      margin-right: 10rem;
+      border-radius: 10px;
+    }
+  }
+  .right {
+    flex: 5;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+      margin-bottom: 5rem;
+      text-align: center;
+      color: $color-dark;
+    }
+
+    .container-primary {
+      width: 65%;
+      background-color: $color-light;
+      position: relative;
+      .login-error {
+        @include absCenter;
+        color: var(--color-danger);
+        // top: 64%;
+        // top: 60%;
+        font-weight: bold;
+      }
+    }
+
+    .input-text-icon,
+    .input-password-icon {
+      .container {
+        border: 2px solid $color-dark;
+
+        i {
+          color: $color-dark;
+        }
+
+        label {
+          color: $color-dark;
+        }
+
+        input {
+          color: $color-dark;
+        }
+
+        &:hover {
+          border: 2px solid $color-secondary;
+          i {
+            color: $color-secondary;
+          }
+        }
+      }
+
+      .active-input {
+        border: 2px solid $color-secondary;
+        i {
+          color: $color-secondary;
+        }
+      }
+    }
+    .action {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .forgot-password-text {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      p {
+        color: $color-secondary;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@include respond(tab-land) {
+  .login {
+    flex-direction: column;
+    padding: 2rem;
+
+    .left {
+      border-right: none;
+      width: 100%;
+      justify-content: center;
+      img {
+        width: 50%;
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+    }
+    .right {
+      width: 100%;
+      .container-primary {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  .login {
+    .right {
+      .container-primary {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+.table-secondary {
+  border-radius: 10px;
+  box-shadow: $shadow-secondary;
+  box-shadow: var(--shadow-tertiary);
+  background-color: var(--color-light);
+  overflow: hidden;
+  padding: 2rem;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    h1 {
+      margin-right: 2rem;
+    }
+    .icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      overflow: hidden;
+
+      i {
+        font-size: 2rem;
+        padding: 1rem;
+      }
+      &:hover {
+        background-color: rgba($color-grey, 0.2);
+      }
+    }
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .data {
+      flex: 0 1 33%;
+      padding: 2rem;
+      display: flex;
+      .flex {
+        display: flex;
+        align-items: flex-start;
+        margin-right: 2rem;
+        width: 15rem;
+
+        i {
+          line-height: 2.3rem;
+          font-size: 1.75rem;
+        }
+
+        .name {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          font-weight: bold;
+          color: $color-secondary;
+          margin-right: 1rem;
+        }
+      }
+
+      .value {
+        font-size: 1.3rem;
+        width: 20rem;
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  .table-secondary {
+    .container {
+      .data {
+        flex: 0 1 100%;
+
+        .name {
+          width: 10rem;
+        }
+        .value {
+          width: 15rem;
+        }
+      }
+    }
+  }
+}

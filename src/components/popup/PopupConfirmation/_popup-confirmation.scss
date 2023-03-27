@@ -1,0 +1,84 @@
+.popup-confirmation {
+  display: none;
+
+  .container {
+    animation: slideDown 0.5s;
+    position: fixed;
+    inset: 35%;
+    background-color: var(--color-light);
+    box-shadow: $shadow-secondary;
+    z-index: 20;
+    padding: 2rem 5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 3rem;
+      line-height: 3rem;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      padding: 1rem 2rem;
+      color: var(--color-dark);
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: rgba($color-grey, 0.2);
+
+      &:nth-child(1) {
+        background-color: $color-secondary;
+        color: $color-light;
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+      &:nth-child(2) {
+        background-color: rgba($color-grey, 0.2);
+        &:hover {
+          background-color: rgba($color-grey, 0.5);
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    // .true {
+    //   background-color: var(--color-secondary);
+    //   color: $color-light;
+
+    //   &:hover {
+    //     opacity: 0.9;
+    //   }
+    // }
+  }
+  .bg-dark {
+    position: fixed;
+    inset: 0;
+    background-color: rgba($color-dark, 0.5);
+    // backdrop-filter: blur(5px);
+    z-index: 19;
+  }
+}
+
+.popup-confirmation.popup-confirmation-visible {
+  display: inline-block;
+}
+
+@keyframes slideDown {
+  from {
+    visibility: hidden;
+    transform: translateY(-20rem);
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,2 @@
+export const LAST_UPDATED = "LAST_UPDATED";
+export const CLEAR_LAST_UPDATED = "CLEAR_LAST_UPDATED";

@@ -1,0 +1,255 @@
+.speed-dial-dashboard {
+  .upload-popup-primary {
+    .success,
+    .fail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .times,
+      .check {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        margin-bottom: 3rem;
+        position: relative;
+        i,
+        p {
+          @include absCenter;
+        }
+        i {
+          font-size: 3rem;
+        }
+      }
+
+      .times {
+        background-color: var(--color-danger);
+        color: $color-light;
+      }
+      .check {
+        background-color: var(--color-success);
+        color: $color-light;
+      }
+
+      .feedback {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        p {
+          margin-bottom: 0;
+        }
+
+        .icon {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%;
+          background-color: rgba($color-grey, 0.2);
+          @include absCenter;
+          left: 125%;
+        }
+      }
+    }
+
+    .spinner {
+      p {
+        @include absCenter;
+        top: 65%;
+      }
+    }
+    .file {
+      position: absolute;
+      visibility: hidden;
+    }
+
+    label {
+      width: 5rem;
+      height: 5rem;
+      background-color: var(--color-tertiary);
+      border-radius: 50%;
+      position: relative;
+      margin-bottom: 2rem;
+      cursor: pointer;
+
+      i {
+        @include absCenter;
+        color: $color-light;
+      }
+
+      &:hover {
+        background-color: var(--color-secondary);
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 5rem;
+    }
+  }
+
+  .retrieve-popup-primary,
+  .sharepoint-popup-primary,
+  .export-popup-primary {
+    .spinner {
+      p {
+        @include absCenter;
+        top: 65%;
+      }
+    }
+    h2 {
+      @include absCenter;
+      top: 15%;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .times,
+      .check {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        margin-bottom: 3rem;
+        position: relative;
+        i,
+        p {
+          @include absCenter;
+        }
+        i {
+          font-size: 3rem;
+        }
+      }
+
+      .times {
+        background-color: var(--color-danger);
+        color: $color-light;
+      }
+      .check {
+        background-color: var(--color-success);
+        color: $color-light;
+      }
+      .text {
+        display: flex;
+        align-items: center;
+        position: relative;
+        p {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-right: 1rem;
+        }
+        .icon {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%;
+          background-color: rgba($color-grey, 0.2);
+          @include absCenter;
+          left: 115%;
+        }
+      }
+    }
+
+    .popup-export {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        line-height: 3rem;
+      }
+
+      button {
+        outline: none;
+        border: none;
+        padding: 1rem 2rem;
+        color: var(--color-dark);
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:nth-child(1) {
+          background-color: $color-secondary;
+          color: $color-light;
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+        &:nth-child(2) {
+          background-color: rgba($color-grey, 0.2);
+          &:hover {
+            background-color: rgba($color-grey, 0.5);
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+
+  .export-popup-primary {
+    .input-container {
+      display: flex;
+      margin-bottom: 5rem;
+      .date-container {
+        text-align: center;
+        .date {
+          width: 17rem;
+          height: 3rem;
+          padding: 0.5rem 1rem;
+          margin: 1rem;
+          border-radius: 10px;
+          outline: none;
+        }
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      .action {
+        text-align: center;
+        .button {
+          width: 5rem;
+          height: 5rem;
+          background-color: var(--color-tertiary);
+          border-radius: 50%;
+          position: relative;
+          margin-bottom: 2rem;
+          cursor: pointer;
+          margin: 0 5rem;
+          margin-bottom: 1rem;
+
+          i {
+            @include absCenter;
+            color: $color-light;
+          }
+
+          &:hover {
+            background-color: var(--color-secondary);
+          }
+        }
+
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+@include respond(tab-land) {
+  .speed-dial-dashboard {
+    .download-popup-primary {
+      .input-container {
+        flex-direction: column;
+      }
+    }
+  }
+}

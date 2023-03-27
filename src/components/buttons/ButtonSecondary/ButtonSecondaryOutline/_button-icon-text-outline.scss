@@ -1,0 +1,25 @@
+.button-icon-text-outline {
+  .button {
+    padding: 1.2rem 2.5rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: $transition-primary;
+    border: 2px solid var(--color-dark);
+    font-size: 1.2rem;
+
+    .icon-left {
+      margin-right: 1rem;
+    }
+    .icon-right {
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      background-color: var(--color-dark);
+      color: $color-light;
+    }
+  }
+}

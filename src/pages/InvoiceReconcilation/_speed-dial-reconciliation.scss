@@ -1,0 +1,201 @@
+.speed-dial-reconcilation {
+  .escalate-popup-primary,
+  .reject-popup-primary {
+    width: 80rem;
+    height: 50rem;
+    padding: 3rem 5rem 2rem;
+
+    form {
+      width: 100%;
+    }
+
+    .input-list {
+      margin-bottom: 4rem;
+    }
+    overflow-y: scroll;
+    @include hideScrollbar;
+    .btn-container {
+      margin-right: auto;
+    }
+
+    .email {
+      position: absolute;
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .escalate-popup-primary,
+  .reject-popup-primary,
+  .export-popup-primary,
+  .approve-popup-primary,
+  .fix-popup-primary {
+    .spinner {
+      p {
+        @include absCenter;
+        top: 65%;
+      }
+    }
+
+    .success,
+    .fail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .times,
+      .check {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        margin-bottom: 3rem;
+        position: relative;
+        i,
+        p {
+          @include absCenter;
+        }
+        i {
+          font-size: 3rem;
+        }
+      }
+
+      .times {
+        background-color: var(--color-danger);
+        color: $color-light;
+      }
+      .check {
+        background-color: var(--color-success);
+        color: $color-light;
+      }
+
+      .feedback {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        p {
+          margin-bottom: 0;
+        }
+
+        .icon {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%;
+          background-color: rgba($color-grey, 0.2);
+          @include absCenter;
+          left: 125%;
+        }
+      }
+    }
+
+    .text-area {
+      width: 100%;
+      margin-bottom: 3rem;
+      //   border-radius: 10px;
+      //   background-color: transparent;
+      //   color: var(--color-dark);
+      //   outline: none;
+      //   border: 2px solid var(--color-secondary);
+      //   scrollbar-width: none;
+      //   &::-webkit-scrollbar {
+      //     display: none;
+      //   }
+    }
+
+    .btn-container {
+      display: flex;
+
+      .button-primary {
+        background-color: rgba($color-grey, 0.2);
+        margin-left: 3rem;
+        border-radius: 10px !important;
+
+        &:hover {
+          background-color: rgba($color-grey, 0.5);
+        }
+      }
+    }
+
+    .popup-escalate,
+    .popup-reject,
+    .popup-export,
+    .popup-approve,
+    .popup-fix {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        line-height: 3rem;
+      }
+
+      button {
+        outline: none;
+        border: none;
+        padding: 1rem 2rem;
+        color: var(--color-dark);
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:nth-child(1) {
+          background-color: $color-secondary;
+          color: $color-light;
+          &:hover {
+            opacity: 0.75;
+          }
+        }
+        &:nth-child(2) {
+          background-color: rgba($color-grey, 0.2);
+          &:hover {
+            background-color: rgba($color-grey, 0.5);
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+
+  .view-po-loader {
+    position: fixed;
+    overflow: hidden;
+    z-index: 999;
+    top: 15%;
+    left: 12%;
+    right: 12%;
+    bottom: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light);
+    border-radius: 10px;
+    box-shadow: $shadow-secondary;
+  }
+
+  .view-po-close {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 999;
+  }
+}
+
+@include respond(phone) {
+  .speed-dial-reconcilation {
+    .escalate-popup-primary,
+    .reject-popup-primary {
+      width: 100%;
+      height: 50rem;
+      padding: 5rem;
+      padding-top: 10rem;
+    }
+  }
+}

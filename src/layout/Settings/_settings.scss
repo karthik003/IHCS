@@ -1,0 +1,73 @@
+.settings {
+  .container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30rem;
+    background-color: var(--color-light);
+    z-index: 9;
+    transform: translateX(30rem);
+    transition: $transition-primary;
+    z-index: 101;
+
+    .close {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+    }
+
+    .content {
+      padding: 2rem;
+      margin-top: 10rem;
+      transition: $transition-primary;
+      .title {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        position: absolute;
+        top: 6%;
+        left: 10%;
+
+        i {
+          font-size: 3rem;
+          margin-right: 1rem;
+        }
+      }
+      .theme {
+        // display: flex;
+        // align-items: center;
+        p {
+          font-weight: bold;
+          // margin-right: 1rem;
+        }
+      }
+    }
+  }
+  .bg-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-dark, 0.5);
+    z-index: 101;
+    // transform: translateX(calc(30rem - 100vw));
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-primary;
+  }
+}
+
+.settings.settings-active {
+  .container {
+    transform: translateX(0);
+    box-shadow: $shadow-secondary;
+    z-index: 102;
+  }
+  .bg-dark {
+    // transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}

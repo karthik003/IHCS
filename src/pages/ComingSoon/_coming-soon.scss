@@ -1,0 +1,17 @@
+.coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 10rem);
+  .logo {
+    width: 10rem;
+    padding-right: 5rem;
+    border-right: 2px solid var(--color-dark);
+    img {
+      width: 100%;
+    }
+  }
+  h1 {
+    margin-left: 5rem;
+  }
+}

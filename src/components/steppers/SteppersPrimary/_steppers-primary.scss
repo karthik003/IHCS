@@ -1,0 +1,15 @@
+.steppers-primary {
+  background-color: var(--color-light);
+  box-shadow: var(--shadow-primary);
+  border-radius: 10px;
+  padding: 5rem;
+}
+
+@include respond(phone) {
+  .steppers-primary {
+    padding: 2rem;
+
+    overflow-x: scroll;
+    @include hideScrollbar;
+  }
+}

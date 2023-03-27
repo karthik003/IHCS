@@ -1,0 +1,17 @@
+.button-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+  i {
+    font-size: 2rem;
+    color: $color-light;
+  }
+}

@@ -1,0 +1,59 @@
+.reconcile {
+  // min-height: calc(100vh - 10rem);
+  padding: 5rem 5rem;
+  position: relative;
+
+  .counter-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 4fr));
+    grid-gap: 3rem;
+    margin-bottom: 3rem;
+
+    .active-counter {
+      .container {
+        .counter {
+          border-color: $color-success;
+          // transform: perspective(1px) translate(-50%, -50%) scale(1.2);
+
+          p {
+            // color: $color-light;
+          }
+        }
+        .info {
+          i {
+            background-color: var(--color-success) !important;
+          }
+        }
+      }
+    }
+  }
+  .ap-reconcile-table {
+    height: 40rem;
+    width: 100%;
+    box-shadow: $shadow-secondary;
+    border-radius: 10px;
+
+    .theme,
+    svg,
+    path,
+    tr,
+    th,
+    div {
+      color: var(--color-dark);
+      background-color: var(--color-light);
+    }
+  }
+}
+
+@include respond(phone) {
+  .reconcile {
+    .counter-container {
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 4fr));
+      grid-gap: 3rem;
+
+      .container {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+.input-list {
+  width: 100%;
+  .container {
+    border-bottom: 1px solid var(--color-dark);
+    padding: 0 0 0 0;
+    height: 5rem;
+    // border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: $transition-primary;
+
+    .list {
+      position: absolute;
+      left: -0.2rem;
+      right: -0.2rem;
+      top: 100%;
+      height: fit-content;
+      background-color: var(--color-light);
+      z-index: 1;
+      box-shadow: var(--shadow-secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      transition: $transition-primary;
+      border: 0.2px solid rgba($color-grey-light, 0.5);
+      max-height: 25rem;
+      overflow-y: scroll;
+      @include hideScrollbar;
+
+      .item {
+        width: 100%;
+        height: 5rem;
+        padding: 0 2rem;
+        @include flexCenter;
+        align-items: flex-start;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--color-secondary);
+          color: $color-light;
+        }
+      }
+    }
+
+    i {
+      margin-right: 1rem;
+      font-size: 2rem;
+      transition: $transition-primary;
+      color: var(--color-dark);
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translate(0, -30%);
+      cursor: text;
+      color: #8a8a8a;
+      transition: $transition-primary;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      font-size: 1.6rem;
+      padding-left: 1rem;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: transparent;
+      color: inherit;
+      font-family: inherit;
+
+      &:focus ~ label {
+        top: -1rem;
+      }
+
+      &:focus ~ .list {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    &:hover {
+      border-bottom: 1px solid var(--color-secondary);
+      label {
+        top: -1rem;
+      }
+      i {
+        color: var(--color-secondary);
+      }
+    }
+
+    .active-label {
+      top: -1rem;
+    }
+  }
+
+  .active-input {
+    border-bottom: 1px solid var(--color-secondary);
+    i {
+      color: var(--color-secondary);
+    }
+  }
+
+  .error-input {
+    border-bottom: 1px solid var(--color-danger) !important;
+    i {
+      color: var(--color-danger) !important;
+    }
+
+    label {
+      color: var(--color-danger) !important;
+    }
+  }
+}

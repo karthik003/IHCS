@@ -1,0 +1,22 @@
+.loader-tertiary {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-primary;
+
+  img {
+    width: 30rem;
+    margin-bottom: 5rem;
+  }
+
+  .dd-logo {
+    width: 20rem;
+    border-radius: 10px;
+  }
+
+  .spinner {
+    color: $color-light;
+  }
+}

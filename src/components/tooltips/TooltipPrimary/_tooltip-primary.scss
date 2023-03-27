@@ -1,0 +1,51 @@
+.tooltip-primary {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+
+  .tooltip {
+    padding: 0.5rem 0.6rem 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: $color-light;
+    color: $color-dark;
+    box-shadow: $shadow-secondary;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 105%;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+
+    .counter {
+      min-width: 2rem;
+      width: fit-content;
+      height: 2rem;
+      padding: 0 1rem;
+      background-color: var(--color-secondary) !important;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color-light;
+      font-size: 1.2rem;
+      // font-weight: 600;
+    }
+
+    .counter-active {
+      background-color: var(--color-success);
+    }
+  }
+
+  .children:hover ~ .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+}

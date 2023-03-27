@@ -1,0 +1,24 @@
+.ap {
+  @import "./speed-dial-dashboard";
+  min-height: calc(100vh - 10rem);
+
+  .iframe-container {
+    .iframe {
+      width: 100%;
+      min-height: calc(100vh - 10.5rem);
+      height: fit-content;
+      border: none;
+    }
+  }
+}
+
+@include respond(phone) {
+  .ap {
+    min-height: 100vh;
+    .iframe-container {
+      .iframe {
+        min-height: 100vh;
+      }
+    }
+  }
+}

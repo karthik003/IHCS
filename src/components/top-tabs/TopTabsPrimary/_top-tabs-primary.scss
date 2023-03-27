@@ -1,0 +1,48 @@
+.top-tabs-primary {
+  .tabs-container {
+    display: flex;
+    align-items: center;
+    // background-color: var(--color-primary);
+    height: 6rem;
+    margin-bottom: 2rem;
+    background-color: var(--color-light);
+
+    .tab {
+      flex: 1;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      p {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: rgba($color-grey, 0.2);
+      }
+    }
+    .tab-active {
+      border-bottom: 5px solid var(--color-secondary);
+    }
+
+    p {
+      cursor: pointer;
+    }
+  }
+}
+
+@include respond(phone) {
+  .top-tabs-primary {
+    .tabs-container {
+      .tab {
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}

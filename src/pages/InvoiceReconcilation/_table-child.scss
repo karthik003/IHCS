@@ -1,0 +1,18 @@
+.table-child {
+  margin: 5rem;
+  box-shadow: $shadow-secondary;
+  box-shadow: var(--shadow-border);
+  background-color: rgba($color-grey, 0.1);
+  border-radius: 5px;
+  border-top: none;
+  table {
+    thead {
+      tr {
+        border-top: none;
+        &:hover {
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}

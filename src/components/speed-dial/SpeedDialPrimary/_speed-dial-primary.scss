@@ -1,0 +1,73 @@
+.speed-dial-primary {
+  .container {
+    position: fixed;
+    top: 7.5%;
+    left: 20%;
+    right: 20%;
+    bottom: 0;
+    // background-color: rgba($color-dark, 0.75);
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    z-index: 11;
+    // visibility: hidden;
+    // opacity: 0;
+    transition: $transition-primary;
+
+    .items {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+
+      .item {
+        min-width: 13rem;
+        height: 5rem;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: var(--color-tertiary);
+        padding: 2rem;
+
+        i {
+          color: $color-light;
+          font-size: 2rem;
+          margin-right: 1rem;
+        }
+        p {
+          color: $color-light;
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          background-color: var(--color-secondary);
+        }
+      }
+
+      .dial-active {
+        background-color: var(--color-secondary) !important;
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  .speed-dial-primary {
+    .container {
+      left: 5%;
+      right: 5%;
+
+      .items {
+        .item {
+          min-width: 10rem;
+          height: 4rem;
+          padding: 1rem;
+          i {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.notification-primary {
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10rem);
+  background-color: var(--color-grey-dark-light);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: var(--color-light);
+  height: 6rem;
+  transition: $transition-primary;
+
+  .icon-left {
+    margin-right: 1rem;
+    font-size: 2.5rem;
+  }
+  .icon-right {
+    margin-left: 1rem;
+    font-size: 2.5rem;
+  }
+
+  i {
+    border-radius: 50%;
+    @include flexCenter;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.notification-primary.notification-active {
+  animation: notification 0.3s ease-in-out forwards;
+}
+
+@keyframes notification {
+  0% {
+    transform: translateX(-50%) translateY(-10rem);
+  }
+  75% {
+    transform: translateX(-50%) translateY(2rem);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}

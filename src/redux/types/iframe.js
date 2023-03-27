@@ -1,0 +1,3 @@
+export const AP_IFRAME = "AP_IFRAME";
+export const INVOICE_IFRAME = "INVOICE_IFRAME";
+export const IFRAME_LOADING = "IFRAME_LOADING";

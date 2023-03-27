@@ -1,0 +1,82 @@
+.pdf-view-primary {
+  .pdf-header {
+    width: 100%;
+    height: 5rem;
+    box-shadow: $shadow-secondary;
+    background-color: $color-light;
+    color: $color-dark;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-bottom: 5rem;
+    border-radius: 5px;
+    .page-toggle {
+      display: flex;
+      align-items: center;
+      .icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        i {
+          @include absCenter;
+        }
+      }
+      p {
+        margin: 0 1rem;
+      }
+
+      .icon-disabled {
+        color: $color-grey-light;
+      }
+    }
+    .scale {
+      display: flex;
+      align-items: center;
+      .icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        margin: 0 0.5rem;
+        i {
+          @include absCenter;
+        }
+      }
+      .icon-disabled {
+        color: $color-grey-light;
+      }
+    }
+  }
+
+  .pdf {
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    .scroll {
+      overflow: scroll;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pdf-loader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .spinner {
+          color: var(--color-secondary);
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@include respond(phone) {
+  .pdf-view-primary {
+    .pdf {
+      min-height: 25vh;
+    }
+  }
+}

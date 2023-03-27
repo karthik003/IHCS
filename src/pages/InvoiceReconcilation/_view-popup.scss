@@ -1,0 +1,101 @@
+.view-popup {
+  .bg-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-dark, 0.5);
+    z-index: 13;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+  .close {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 13;
+    background-color: var(--color-secondary) !important;
+    i {
+      color: $color-light !important;
+    }
+  }
+  .container {
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    right: 10%;
+    bottom: 15%;
+    background-color: var(--color-light);
+    border-radius: 10px;
+    z-index: 13;
+    box-shadow: $shadow-secondary;
+    overflow: auto;
+    // scrollbar-width: none;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+
+    h2 {
+      margin-left: 4rem;
+      margin-top: 4rem;
+    }
+
+    table {
+      thead {
+        tr {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          padding: 2rem;
+          // border-bottom: 1px solid var(--color-grey);
+          border-top: none;
+
+          th {
+            min-width: 15rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+        }
+      }
+      tbody {
+        tr {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          padding: 1rem 2rem;
+          border-top: none;
+          &:not(:last-child) {
+            // border-bottom: 1px solid var(--color-grey);
+          }
+
+          td {
+            flex: 1;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+
+            i {
+              margin-right: 1rem;
+              font-size: 2rem;
+              // font-weight: bold;
+            }
+          }
+          .name {
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .no-res-feedback {
+        padding: 5rem;
+        text-align: center;
+      }
+    }
+  }
+  .side-header {
+    font-weight: bold;
+    font-size: 1.5rem !important;
+  }
+}
