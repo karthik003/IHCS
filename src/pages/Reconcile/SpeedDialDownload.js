@@ -32,7 +32,7 @@ const handleDownload = () =>{
         // Setting various property values
         let alink = document.createElement('a');
         alink.href = fileURL;
-        alink.download = 'Record.pdf';
+        alink.download = 'downloads-bots.csv';
         alink.click();
     })
     .catch(()=>{
