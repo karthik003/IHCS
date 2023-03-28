@@ -1,7 +1,7 @@
 const data = [
   {
-    name: "Invoices Recieved",
-    desc: "Check whether invoices recieved or not.",
+    name: "Documents Received",
+    desc: "Check whether invoices received or not.",
     path: "/reconcile/invoices/all",
   },
   {

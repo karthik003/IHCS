@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import CounterPrimary from "../../components/counters/CounterPrimary";
 import { getApReconcileTable, setTableLoading } from "../../redux/actions/table";
 import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
+import { useHistory, useParams } from "react-router-dom";
+
+import CounterPrimary from "../../components/counters/CounterPrimary";
 import LoaderPrimary from "../../layout/Loader/LoaderPrimary";
-import { useParams, useHistory } from "react-router-dom";
+import SpeedDialDownload from "./SpeedDialDownload";
 import TableReconcile from "./TableReconcile";
+import { bindActionCreators } from "redux";
 
 const Reconcile = () => {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ const Reconcile = () => {
         ))}
       </div>
       <TableReconcile data={apReconcileTable.Table} tableTitle={apReconcileTable.Table.tableTitle} />
+      <SpeedDialDownload /> 
     </div>
   );
 };
