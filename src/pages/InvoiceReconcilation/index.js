@@ -7,6 +7,7 @@ import LoaderPrimary from "../../layout/Loader/LoaderPrimary";
 import PdfViewPrimary from "../../components/pdf-view/PdfViewPrimary";
 import SpeedDialReconcilation from "./SpeedDialReconcilation";
 import SteppersPrimary from "../../components/steppers/SteppersPrimary";
+import SummaryTable from "./SummaryTable";
 import TableParent from "./TableParent";
 import Tablesecondary from "../../components/table/TableSecondary";
 import { bindActionCreators } from "redux";
@@ -47,6 +48,14 @@ const InvoiceReconcilation = () => {
         pdf={apInvoiceReconcilation.pdf}
         data={apInvoiceReconcilation.invoiceDetails}
         invoiceId={apInvoiceReconcilation.invoiceId}
+      />
+      <SummaryTable 
+        customClass="mb-5"
+        isVisible={editInvoiceVisible}
+        // setVisible={seteditInvoiceVisible}
+        // pdf={apInvoiceReconcilation.pdf}
+        // data={apInvoiceReconcilation.invoiceDetails}
+        // invoiceId={apInvoiceReconcilation.invoiceId}
       />
       <TableParent
         data={apInvoiceReconcilation.listOfItems}

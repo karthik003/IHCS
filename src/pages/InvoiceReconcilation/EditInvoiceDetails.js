@@ -1,15 +1,17 @@
 /* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import PdfViewPrimary from "../../components/pdf-view/PdfViewPrimary";
-import { convertArrayToObject } from "../../functions/conversion";
+import { useDispatch, useSelector } from "react-redux";
+
+import ButtonPrimary from "../../components/buttons/ButtonPrimary";
 import ButtonSecondaryFill from "../../components/buttons/ButtonSecondary/ButtonSecondaryFill";
 import ContainerPrimary from "../../components/container/ContainerPrimary";
-import ButtonPrimary from "../../components/buttons/ButtonPrimary";
-import { useDispatch, useSelector } from "react-redux";
-import { changeApInvoiceDetails } from "../../redux/actions/ap";
-import { numberOnChange } from "../../functions/validations";
 import InputCheckbox from "../../components/input/InputCheckbox";
+import PdfViewPrimary from "../../components/pdf-view/PdfViewPrimary";
+import PropTypes from "prop-types";
+import { changeApInvoiceDetails } from "../../redux/actions/ap";
+import { convertArrayToObject } from "../../functions/conversion";
+import { numberOnChange } from "../../functions/validations";
 
 const EditInvoiceDetails = (props) => {
   const { pdf, invoiceId, data, isVisible, setVisible } = props;
