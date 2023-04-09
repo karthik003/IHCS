@@ -51,7 +51,8 @@ const InvoiceReconcilation = () => {
       />
       <SummaryTable 
         customClass="mb-5"
-        isVisible={editInvoiceVisible}
+        // isVisible={editInvoiceVisible}
+        summary={apInvoiceReconcilation.summary}
         // setVisible={seteditInvoiceVisible}
         // pdf={apInvoiceReconcilation.pdf}
         // data={apInvoiceReconcilation.invoiceDetails}
