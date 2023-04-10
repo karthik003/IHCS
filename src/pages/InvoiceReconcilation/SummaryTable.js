@@ -6,7 +6,7 @@ function SummaryTable(props) {
     return (
         <div className={`table-secondary ${customClass}`}>
         <div className="header">
-          <h1>Summmary</h1><br />
+          <h1>Summary</h1><br />
         </div>
         <p>{summary}</p>
         </div>

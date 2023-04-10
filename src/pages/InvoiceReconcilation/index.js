@@ -8,10 +8,14 @@ import PdfViewPrimary from "../../components/pdf-view/PdfViewPrimary";
 import SpeedDialReconcilation from "./SpeedDialReconcilation";
 import SteppersPrimary from "../../components/steppers/SteppersPrimary";
 import SummaryTable from "./SummaryTable";
-import TableParent from "./TableParent";
 import Tablesecondary from "../../components/table/TableSecondary";
 import { bindActionCreators } from "redux";
 import { useParams } from "react-router-dom";
+
+// import TableParent from "./TableParent";
+
+
+
 
 const InvoiceReconcilation = () => {
   const { invoiceId } = useParams();
@@ -58,13 +62,13 @@ const InvoiceReconcilation = () => {
         // data={apInvoiceReconcilation.invoiceDetails}
         // invoiceId={apInvoiceReconcilation.invoiceId}
       />
-      <TableParent
+      {/* <TableParent
         data={apInvoiceReconcilation.listOfItems}
         pdf={apInvoiceReconcilation.pdf}
         invoiceId={apInvoiceReconcilation.invoiceId}
         viewpo={apInvoiceReconcilation.viewpo}
         viewgr={apInvoiceReconcilation.viewgr}
-      />
+      /> */}
       <SpeedDialReconcilation viewpo={apInvoiceReconcilation.viewpo} viewgr={apInvoiceReconcilation.viewgr} />
     </div>
   );
