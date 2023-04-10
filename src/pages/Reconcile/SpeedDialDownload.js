@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-import AWS from 'aws-sdk'
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -12,16 +11,36 @@ import { UploadFile } from '@mui/icons-material';
 import axios from "axios";
 import { styled } from '@mui/material/styles';
 
+// import AWS from 'aws-sdk'
+
+
+
+
+
+
+
+
+
+
+
+// import S3Uploader from 'react-s3-uploader';
+
+
+
+
+
+
+
 // import Typography from '@mui/material/Typography';
 
 
 const S3_BUCKET ='preprod-ihcs';
 // const REGION ='ap-south-1';
 
-AWS.config.update({
-  accessKeyId: "AKIAVCB27Q2HJUVFWF4G",
-  secretAccessKey: "q4QbJs3aTzMmx7pCq4wrEkzL8F8NSgvg5tezsY"
-})
+// AWS.config.update({
+//   accessKeyId: "AKIAVCB27Q2HJUVFWF4G",
+//   secretAccessKey: "q4QbJs3aTzMmx7pCq4wrEkzL8F8NSgvg5tezsY"
+// })
 
 const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: 'absolute',
@@ -55,7 +74,8 @@ export default function PlaygroundSpeedDial() {
   const [selectedFile,setSelectedFile] = useState(null);
   const [openModal,setOpenModal] = useState(false)
   const [uploadClicked, setUploadClicked] = useState(false)
-  // const [uploadFailed,setUploadFailed] = useState(false)
+  const [uploadFailed,setUploadFailed] = useState(false)
+  const [uploadSuccess,setUploadSuccess] = useState(false)
   // const [presignedUrl, setPresignedUrl] = useState()
   const actions = [
     { icon: <UploadFile />, name: 'Upload', func:()=>openUploadModal() },
@@ -89,7 +109,7 @@ export default function PlaygroundSpeedDial() {
       
   }
 
-  // const getPresignedUrl = async () => {
+  // const getPresignedUrl = async (callback) => {
   //   if (!selectedFile) {
   //     console.log('Please select a file.');
   //     return;
@@ -108,7 +128,8 @@ export default function PlaygroundSpeedDial() {
 
   //   try {
   //     const response = await s3.getSignedUrlPromise('putObject', params);
-  //     setPresignedUrl(response);
+  //     callback(response)
+  //     // setPresignedUrl(response);
   //   } catch (err) {
   //     console.log('Error occurred while generating presigned URL.', err);
   //   }
@@ -120,75 +141,47 @@ export default function PlaygroundSpeedDial() {
       return;
     }
 
-    // const s3 = new AWS.S3({
-    //   accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY,
-    //   secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
-    //   region: 'ap-south-1',
-    //   signatureVersion: 'v4'
-    // });
-
-    // const params = {
-    //   Bucket: S3_BUCKET,
-    //   Key: selectedFile.name,
-    //   ContentType: selectedFile.type,
-    //   Body: selectedFile,
-    //   ACL:'public-read'
-    // };
-
-    // try {
-    //   const presignedS3Url = await s3.getSignedUrlPromise('putObject', params);
-    //   // setPresignedUrl(presignedS3Url)
-    //   console.log('presignedS3Url',presignedS3Url)
-    //   await fetch(presignedS3Url, {
-    //     method: 'PUT',
-    //     headers: {
-    //       'Content-Type': selectedFile.type,
-    //     },
-    //     body: selectedFile,
-    //   });
-    //   console.log('File uploaded successfully.');
-    // } catch (err) {
-    //   console.log('Error occurred while uploading the file.', err);
-    // }
-    // try {
-    //   const data = await s3.upload(params).promise();
-    //   console.log('File uploaded successfully.', data);
-    // } catch (err) {
-    //   console.log('Error occurred while uploading the file.', err);
-    // }
-  
     try {
-      
-        const fileRes = await axios.get('https://v884u19ky0.execute-api.ap-south-1.amazonaws.com/preprod/preprod-ihch-upload?filename=filename.pdf ');
-        const res = fileRes.data;
-        
-        var formdata = new FormData();
-        console.log('res',res)
-        formdata.append("key", res["presigned_url"]["fields"]["key"]);
-        // formdata.append("AWSAccessKeyId", res["presigned_url"]["fields"]["AWSAccessKeyId"]);
-        formdata.append("policy", res["presigned_url"]["fields"]["policy"]);
-        formdata.append("signature", res["presigned_url"]["fields"]["signature"]);
-        // formdata.append("x-amz-security-token", res["Presigned_Url"]["fields"]["x-amz-security-token"]);
-        formdata.append("bucket", S3_BUCKET);
-        formdata.append("file", selectedFile);
-        await axios.post(res.presigned_url.url, formdata);
+      let url = 'https://v884u19ky0.execute-api.ap-south-1.amazonaws.com/preprod/preprod-ihch-upload?filename=' + selectedFile.name
+      const fileRes = await axios.get(url);
+      const res = fileRes.data;
+      var formdata = new FormData();
 
-    } catch (error) {
-      console.log(error);
-    }
-  
-  
-  
-  
+      Object.entries(res["presigned_url"]["fields"]).forEach(([key, value]) => {
+        formdata.append(key, value);
+      });
+      console.log('res',res)
+      formdata.append("bucket", S3_BUCKET);
+      formdata.append("file", selectedFile);
+      console.log('formdata',formdata)
+      await axios.post(res.presigned_url.url, formdata).then(response => {
+        console.log("File uploaded successfully.",response);
+        setUploadSuccess(true)
+        setUploadClicked(true)
+      });
+
+  } catch (error) {
+    console.log(error);
+    setUploadFailed(true)
+  }
   }
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      handleClose();
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [uploadSuccess, uploadFailed]);
+  
 
   const handleClose = () => {
     setUploadClicked(false)
     setSelectedFile(null)
-    // setUploadFailed(false)
+    setUploadFailed(false)
+    setUploadSuccess(false)
     setOpenModal(false)
   }
+
 
 
   return (
@@ -221,14 +214,9 @@ export default function PlaygroundSpeedDial() {
         <h2>Upload File</h2><br />
         <input type="file" onChange={handleFileInput}/><br />
         <div style={{justifyContent:"center", textAlign:"center"}}><br />
-          {<Button onClick={handleUpload} disabled={(!selectedFile) || (selectedFile && uploadClicked)}> Upload to S3</Button>}
-          {/* {uploadClicked && 
-          (!uploadFailed ?
-            (<div style={{color:"green"}}>{progress}%</div>)
-            :
-            (<div style={{color:"red"}}>Upload Failed</div>)
-            )
-          } */}
+          <Button onClick={handleUpload} disabled={(!selectedFile) || (selectedFile && uploadClicked)}>Upload</Button>
+          {uploadSuccess && <div style={{color:"green"}}><b>File uploaded successfully</b></div>}
+          {uploadFailed && <div style={{color:"red"}}><b>Upload Failed</b></div>}
         </div>
         </Box>
       </Modal>
